@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Compensation Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h1>Employee Compensation Dashboard</h1>
+
+    <div>
+        <label>Role:</label>
+        <input id="role" type="text">
+        <label>Location:</label>
+        <input id="location" type="text">
+        <label>Include Inactive</label>
+        <input id="inactive" type="checkbox">
+        <button onclick="fetchEmployees()">Filter</button>
+    </div>
+
+    <table id="empTable"></table>
+    <center><button onclick="downloadCSV()">Download Filtered Data as CSV</button></center>
+
+
+    <div>
+        <h3>Simulate Global Compensation Increment</h3>
+        <input id="incrementPercent" type="number">
+        <button onclick="simulateIncrement()">Simulate</button>
+        <table id="simulatedTable"></table>
+    </div>
+    <div>
+    <h3>Employee Count by Experience Range</h3>
+    <button onclick="loadExperienceDistribution()">Load Experience Breakdown</button>
+    <table id="experienceTable" border="1" style="margin-top: 10px;">
+        <thead>
+            <tr>
+                <th>Experience Range</th>
+                <th>Employee Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be dynamically inserted here -->
+        </tbody>
+    </table>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
